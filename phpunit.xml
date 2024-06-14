@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="index.php"
+<phpunit bootstrap="application/tests/bootstrap.php"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false"
->
+         verbose="true"
+         stopOnFailure="false">
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>application/tests</directory>
+            <directory>./application/tests</directory>
         </testsuite>
     </testsuites>
-
     <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">application</directory>
+        <whitelist>
+            <directory suffix=".php">./application/controllers</directory>
+            <directory suffix=".php">./application/models</directory>
+            <directory suffix=".php">./application/libraries</directory>
         </whitelist>
     </filter>
-
-    <logging>
-        <log type="junit" target="application/logs/junit.xml"/>
-    </logging>
-
 </phpunit>
